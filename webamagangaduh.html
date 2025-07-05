@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PortalMagangD3TI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: white;
+      color: #212529;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .navbar-custom {
+      background-color: #3c0a59;
+    }
+    .navbar-custom .navbar-brand,
+    .navbar-custom .nav-link,
+    .navbar-custom .btn{
+      color: #f4d35e;
+    }
+    .navbar-custom .nav-item .btn-outline-light{
+      color: white;
+    }
+    .navbar-custom .nav-item .nav-link{
+      color: #f4d35e;
+    }
+    .navbar-custom .nav-link:hover {
+      color: #ffeb9c;
+    }
+    .btn-outline-light {
+      border-color: black;
+      color: black;
+    }
+    .btn-outline-light:hover {
+      background-color: black;
+      color: white;
+    }
+    .btn-primary {
+      background-color: black;
+      border-color: black;
+    }
+    .btn-primary:hover {
+      background-color: #3c0a59;
+      border-color: #3c0a59;
+    }
+    .feature-btn {
+      background-color: black;
+      color: #fff;
+      border: none;
+      font-weight: 500;
+    }
+    .feature-btn:hover {
+      background-color: #3c0a59;
+      color: #fff;
+    }
+    footer {
+      background-color: #3c0a59;
+      color: #f4d35e;
+      padding: 40px 0;
+      font-size: 0.875rem;
+    }
+    footer a {
+      color: #f4d35e;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .testimonial-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1.25rem;
+      background-color: #fff;
+      min-height: 140px;
+      box-shadow: 0 0 10px rgb(0 0 0 / 0.05);
+    }
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+    .testimonial-footer {
+      display: flex;
+      align-items: center;
+    }
+    .testimonial-footer img {
+      width: 38px;
+      height: 38px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">PortalMagangD3TI</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item me-3">
+            <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+          </li>
+          <li class="nav-item me-3">
+            <a class="nav-link" href="#">Lowongan</a>
+          </li>
+          <li class="nav-item me-2">
+            <a href="gabungan login dan register.html" class="btn btn-outline-light btn-sm px-4">DAFTAR</a>
+          </li>
+          <li class="nav-item">
+            <a href="gabungan login dan register.html" class="btn btn-outline-light btn-sm px-4">LOGIN</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main content container -->
+  <main class="container my-5" style="max-width: 960px;">
+    <!-- Title and Intro -->
+    <section>
+      <h1 class="fw-bold mb-3">MAGANG D3TI - Portal Magang</h1>
+      <p class="mb-4">
+        Selamat datang di PortalMagangD3TI, platform magang inovatif yang dirancang khusus untuk mahasiswa D3 Teknik Informatika!
+        Temukan berbagai lowongan magang terkini dari perusahaan teknologi ternama, ajukan lamaran hanya dengan sekali klik, dan kelola jurnal magangmu secara digital.
+      </p>
+      <button type="button" class="btn btn-primary px-4">Cari Lowongan</button>
+    </section>
+
+    <!-- Image -->
+    <section class="my-5">
+      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/021fc955-d144-48e8-87b7-bcef432a1aae.png" 
+           alt="Professional team with diverse individuals discussing documents and laptops in modern bright office with large windows and plants" 
+           class="img-fluid rounded shadow" onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7f796cb1-57a0-4904-aa2f-73e669375d81.png';" />
+    </section>
+
+    <!-- Features section -->
+    <section class="mb-5">
+      <h4 class="mb-4 fw-semibold">Fitur</h4>
+      <div class="row g-4">
+        <div class="col-md-4 d-flex flex-column">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7c79cce1-be0a-4466-b379-9287defbd1bf.png" 
+               alt="Professional workspace with coffee and technology gadgets set on rustic wooden table" 
+               class="img-fluid rounded mb-3 shadow" onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3f54abb3-098f-442a-b28c-94588aa9eb28.png';" />
+          <h6>Presensi</h6>
+          <p class="mb-2 text-secondary" style="flex-grow: 1;">Body text for whatever you’d like to add more to the subheading.</p>
+          <button class="feature-btn btn btn-sm align-self-start">Presensi</button>
+        </div>
+        <div class="col-md-4 d-flex flex-column">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6c0b108c-0e4f-43c1-a358-ae06ca5ea634.png" 
+               alt="Creative journal notebook and pen on white table with natural light and artistic vibe" 
+               class="img-fluid rounded mb-3 shadow" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Image+not+available';" />
+          <h6>Jurnal</h6>
+          <p class="mb-2 text-secondary" style="flex-grow: 1;">Body text for whatever you’d like to expand on the main point.</p>
+          <button class="feature-btn btn btn-sm align-self-start">Isi jurnal</button>
+        </div>
+        <div class="col-md-4 d-flex flex-column">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/791cc3fa-f5d2-427f-84fe-2e2b89b9dc7c.png" 
+               alt="Relaxing mentoring session with light refreshments and friendly interaction in warm ambiance" 
+               class="img-fluid rounded mb-3 shadow" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Image+not+available';" />
+          <h6>Mentoring</h6>
+          <p class="mb-2 text-secondary" style="flex-grow: 1;">Body text for whatever you’d like to share more.</p>
+          <button class="feature-btn btn btn-sm align-self-start">Mentoring</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="mb-5">
+      <h4 class="mb-4 fw-semibold">Ulasan</h4>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <p class="testimonial-text">"A terrific piece of praise"</p>
+            <div class="testimonial-footer">
+              <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b788be13-1712-4313-b2cf-e07be15517ad.png" alt="User avatar of JD with short hair and glasses" onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fa0f676b-dae2-4a41-ad0d-4b952b360709.png';"/>
+              <div>
+                <strong>Name</strong><br />
+                <small class="text-muted">Description</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <p class="testimonial-text">"A fantastic bit of feedback"</p>
+            <div class="testimonial-footer">
+              <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/42a4c247-a22a-4df8-a3b5-bc40ea23a37f.png" alt="User avatar of SB with curly hair" onerror="this.onerror=null;this.src='https://placehold.co/38x38?text=NA';"/>
+              <div>
+                <strong>Name</strong><br />
+                <small class="text-muted">Description</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <p class="testimonial-text">"A genuinely glowing review"</p>
+            <div class="testimonial-footer">
+              <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ec03b452-864f-4e05-8b18-7f1ae47091df.png" alt="User avatar of MK with tied back hair" onerror="this.onerror=null;this.src='https://placehold.co/38x38?text=NA';"/>
+              <div>
+                <strong>Name</strong><br />
+                <small class="text-muted">Description</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row text-light mb-4">
+        <div class="col-md-4 mb-3">
+          <h5 class="fw-bold">PortalMagangD3TI</h5>
+          <p>Platform magang inovatif untuk mahasiswa Teknik Informatika D3.</p>
+          <div class="d-flex gap-2">
+            <a href="#" aria-label="Facebook" title="Facebook" class="text-light fs-5">FB</a>
+            <a href="#" aria-label="Twitter" title="Twitter" class="text-light fs-5">TW</a>
+            <a href="#" aria-label="Instagram" title="Instagram" class="text-light fs-5">IG</a>
+          </div>
+        </div>
+        <div class="col-md-2 mb-3">
+          <h6>Page</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-3">
+          <h6>Page</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-3">
+          <h6>Page</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center small">
+        © 2024 PortalMagangD3TI — All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
