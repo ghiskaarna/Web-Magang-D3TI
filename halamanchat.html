@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Beranda - PortalMagangD3TI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background-color: #ffffff; font-family: 'Segoe UI', sans-serif; }
+    .navbar-custom { background-color: #3c0a59; }
+    .navbar-custom .nav-link, .navbar-custom .navbar-brand { color: #f4d35e; }
+    .navbar-custom .nav-link:hover { color: #fff; }
+    .card-title { font-weight: bold; }
+    footer { background-color: #3c0a59; color: #f4d35e; padding: 20px 0; }
+    .profile-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: white;
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    body {
+      background-color: white;
+      color: #212529;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .navbar-custom {
+      background-color: #3c0a59;
+    }
+    .navbar-custom .navbar-brand,
+    .navbar-custom .nav-link,
+    .navbar-custom .btn{
+      color: #f4d35e;
+    }
+    .navbar-custom .nav-item .btn-outline-light{
+      color: black;
+    }
+    .navbar-custom .nav-item .nav-link{
+      color: #f4d35e;
+    }
+    .navbar-custom .nav-link:hover {
+      color: #ffeb9c;
+    }
+    .navbar-custom .nav-item .profile-img{
+        position: relative;
+    }
+    .navbar-custom .profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .navbar-custom .profile-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #e6b800;
+  }
+  .navbar-custom .profile img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid #ffd600;
+    object-fit: cover;
+    margin-left: 10px;
+  }
+  .navbar-custom .profile-text small {
+    background-color: #ffd600;
+    color: #35074f;
+    border-radius: 50px;
+    padding: 0 0.35rem;
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+  }
+    .sidebar-header {
+      padding: 15px;
+      border-bottom: 1px solid #ccc;
+    }
+    .sidebar-search {
+      padding: 0 15px 15px;
+    }
+    .contact-list {
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+    .contact-item {
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #eee;
+    }
+    .contact-item img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+    .contact-item:hover {
+      background-color: #f1f1f1;
+      cursor: pointer;
+    }
+    .chat-area { height: 100vh; display: flex; flex-direction: column; }
+    .chat-header { background-color: white; padding: 10px; border-bottom: 1px solid #ddd; }
+    .chat-body { flex-grow: 1; overflow-y: auto; padding: 20px; background-color: #f4f4f4; }
+    .chat-footer { background-color: #e9ecef; padding: 10px; border-top: 1px solid #ccc; display: flex; align-items: center; }
+    .chat-footer input { flex-grow: 1; margin-right: 10px; }
+    .chat-footer button { background-color: #5a1367; color: white; border: none; padding: 8px 15px; border-radius: 50%; }
+    .message-left, .message-right {
+      max-width: 60%; padding: 10px 15px; border-radius: 20px; margin-bottom: 10px;
+    }
+    .message-left { background-color: #c5a8ff; align-self: flex-start; }
+    .message-right { background-color: #5a1367; color: white; align-self: flex-end; }
+    .footer-dark { background-color: #32004b; color: white; padding: 20px; text-align: center; }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">PortalMagangD3TI</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></li>
+          <li class="nav-item me-3">
+            <a href="#" class="nav-link"><img width="20" height="20" src="https://img.icons8.com/fluency-systems-filled/48/chat.png" alt="chat"/></a>
+          </li>
+          <li class="nav-item me-3">
+            <a href="berandaafterlogin.html" class="nav-link active" aria-current="page">Beranda</a>
+          </li>
+          <li class="nav-item me-3">
+            <a href="halamanlowongan.html" class="nav-link">Lowongan</a>
+          </li>
+          <div class="profile" aria-label="Profile information and settings" tabindex="0">
+            <div class="profile-text">
+            Kim Mingyu
+            <small>active</small>
+          <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a href="halamanprofile.html" class="dropdown-item" href="#">Profil</a></li>
+            <li><a class="dropdown-item" href="#">Pengaturan</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger" href="webamagangaduh.html">Logout</a></li>
+          </ul></div>
+        </li>
+        <li class="nav-item me-3">
+            <div class="profile-img"><img src="mingyu2.jpg"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Wrapper Layout -->
+<div class="container-fluid">
+  <div class="row" style="height: 90vh;">
+
+    <!-- Sidebar -->
+    <div class="col-md-3 sidebar border-end">
+      <div class="sidebar-header d-flex align-items-center">
+        <img src="https://via.placeholder.com/40" class="rounded-circle me-2">
+        <strong>PortalMagangD3TI</strong>
+      </div>
+      <div class="sidebar-search">
+        <input type="text" class="form-control" placeholder="Search messages">
+      </div>
+      <div id="contactList" class="contact-list">
+        <!-- contact-item ... -->
+      </div>
+    </div>
+
+   <!-- Chat Area -->
+<div class="col-md-9 chat-area d-flex flex-column">
+  <div class="chat-header">
+    <h6 class="mb-0">Bapak Dosen</h6>
+  </div>
+  <div id="chatBody" class="chat-body d-flex flex-column">
+    <!-- Chat messages -->
+  </div>
+  <div class="chat-footer">
+    <img src="https://via.placeholder.com/40" class="rounded-circle me-2">
+    <input type="text" id="chatInput" class="form-control" placeholder="Type your message...">
+    <button onclick="sendMessage()">➤</button>
+  </div>
+</div>
+
+
+
+   <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row text-light mb-4">
+        <div class="col-md-4 mb-3">
+          <h5 class="fw-bold">PortalMagangD3TI</h5>
+          <p>Platform magang inovatif untuk mahasiswa Teknik Informatika D3.</p>
+          <div class="d-flex gap-2">
+            <a href="#" aria-label="Facebook" title="Facebook" class="text-light fs-5"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/facebook-circled--v1.png" alt="facebook-circled--v1"/></a>
+            <a href="#" aria-label="Twitter" title="Twitter" class="text-light fs-5"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/twitter.png" alt="twitter"/></a>
+            <a href="#" aria-label="Instagram" title="Instagram" class="text-light fs-5"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/instagram-new--v1.png" alt="instagram-new--v1"/></a>
+          </div>
+        </div>
+        <div class="col-md-2 mb-3">
+          <h6>Page</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-3">
+          <h6>Page</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-3">
+          <h6>Page</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center small">
+        © 2024 PortalMagangD3TI — All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById("chatInput");
+      const text = input.value.trim();
+      if (text === "") return;
+
+      const msg = document.createElement("div");
+      msg.classList.add("message-right");
+      msg.innerText = text;
+      document.getElementById("chatBody").appendChild(msg);
+      input.value = "";
+      document.getElementById("chatBody").scrollTop = document.getElementById("chatBody").scrollHeight;
+
+      setTimeout(() => {
+        const reply = document.createElement("div");
+        reply.classList.add("message-left");
+        reply.innerText = "Ini adalah balasan otomatis.";
+        document.getElementById("chatBody").appendChild(reply);
+        document.getElementById("chatBody").scrollTop = document.getElementById("chatBody").scrollHeight;
+      }, 1000);
+    }
+
+    document.getElementById("chatInput").addEventListener("keydown", function(e) {
+      if (e.key === "Enter") sendMessage();
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

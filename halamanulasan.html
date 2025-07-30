@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Beranda - PortalMagangD3TI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background-color: #ffffff; font-family: 'Segoe UI', sans-serif; }
+    .navbar-custom { background-color: #3c0a59; }
+    .navbar-custom .nav-link, .navbar-custom .navbar-brand { color: #f4d35e; }
+    .navbar-custom .nav-link:hover { color: #fff; }
+    .card-title { font-weight: bold; }
+    footer { background-color: #3c0a59; color: #f4d35e; padding: 20px 0; }
+    .profile-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: white;
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    body {
+      background-color: white;
+      color: #212529;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .navbar-custom {
+      background-color: #3c0a59;
+    }
+    .navbar-custom .navbar-brand,
+    .navbar-custom .nav-link,
+    .navbar-custom .btn{
+      color: #f4d35e;
+    }
+    .navbar-custom .nav-item .btn-outline-light{
+      color: black;
+    }
+    .navbar-custom .nav-item .nav-link{
+      color: #f4d35e;
+    }
+    .navbar-custom .nav-link:hover {
+      color: #ffeb9c;
+    }
+    .navbar-custom .nav-item .profile-img{
+        position: relative;
+    }
+    .navbar-custom .profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .navbar-custom .profile-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #e6b800;
+  }
+  .navbar-custom .profile img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid #ffd600;
+    object-fit: cover;
+    margin-left: 10px;
+  }
+  .navbar-custom .profile-text small {
+    background-color: #ffd600;
+    color: #35074f;
+    border-radius: 50px;
+    padding: 0 0.35rem;
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+  }
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      color: #fccd2f;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover,
+    a:focus {
+      color: #e6b800;
+      outline: none;
+    }
+    main {
+      flex-grow: 1;
+      max-width: 1200px;
+      margin: 2rem auto 4rem;
+      padding: 0 1rem;
+      width: 100%;
+    }
+    main h1 {
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .input-comment-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+    }
+    .input-comment-section img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 3px rgb(0 0 0 / 0.1);
+    }
+    .input-comment-section input {
+      flex-grow: 1;
+      border-radius: 50px;
+      border: 1px solid #bbb;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.2s border-color ease-in-out;
+    }
+    .input-comment-section input:focus {
+      border-color: #f6ce2b;
+      box-shadow: 0 0 6px #f6ce2baa;
+    }
+    .input-comment-section button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: #555;
+      font-size: 1.4rem;
+      transition: color 0.2s ease-in-out;
+    }
+    .input-comment-section button:hover {
+      color: #f6ce2b;
+    }
+    .stars-input {
+      display: inline-flex;
+      gap: 0.25rem;
+      font-size: 1.6rem;
+      color: #f6ce2b;
+      margin-left: auto;
+      user-select: none;
+    }
+    .stars-input .star {
+      pointer-events: pointer;
+      transition: transform 0.2s ease;
+    }
+    .stars-input .stars:hover{
+      transform: scale(1.2);
+    }
+    hr.separator {
+      margin: 2rem 0 1rem;
+      border: 0;
+      border-top: 1px solid #ccc;
+    }
+    .sort-section {
+      text-align: right;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .sort-section select {
+      border: none;
+      background: transparent;
+      font-weight: 600;
+      cursor: pointer;
+      padding-left: 0.5rem;
+      color: #000;
+      font-size: 1rem;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .review-card {
+      border: 1px solid #9fc4ff;
+      border-radius: 6px;
+      padding: 1rem 1rem 1.25rem;
+      box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      background-color: #fff;
+      transition: box-shadow 0.2s ease-in-out;
+    }
+    .review-card:hover {
+      box-shadow: 0 4px 8px rgb(0 0 0 / 0.12);
+    }
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .review-header img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 3px rgb(0 0 0 / 0.1);
+    }
+    .review-stars {
+      display: inline-flex;
+      gap: 0.15rem;
+      color: #f6ce2b;
+      font-size: 1rem;
+    }
+    .review-stars .star {
+      filter: drop-shadow(0 1px 0.7px rgba(0, 0, 0, 0.08));
+    }
+    .review-content {
+      font-size: 0.95rem;
+      line-height: 1.3;
+      color: #222;
+      flex-grow: 1;
+      white-space: pre-line;
+    }
+    .review-time {
+      font-size: 0.75rem;
+      color: #999;
+      font-weight: 600;
+      margin-top: auto;
+    }
+    .load-more-btn {
+      background-color: #b6a6a6;
+      border: none;
+      border-radius: 4px;
+      color: #1a1a1a;
+      font-weight: 700;
+      padding: 0.5rem 1.5rem;
+      width: fit-content;
+      margin: 3rem auto 0;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    .load-more-btn:hover {
+      background-color: #9c8686;
+    }
+    footer {
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      font-weight: 600;
+    }
+    footer .brand-footer {
+      flex: 1 0 180px;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    footer .footer-links {
+      flex: 1 1 150px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    footer .footer-links span {
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      font-size: 0.9rem;
+      color: #f6ce2b;
+    }
+    footer .footer-links a {
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 400;
+      text-decoration: none;
+    }
+    footer .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    footer .social-icons a {
+      color: #fff;
+      font-size: 1.2rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 4px;
+      background-color: #2a0a4c;
+      transition: background-color 0.3s ease;
+    }
+    footer .social-icons a:hover {
+      background-color: #f6ce2b;
+      color: #3a0f5f;
+    }
+    /* Star icon styling for consistent fill */
+    .star {
+      width: 1.1em;
+      height: 1.1em;
+      fill: currentColor;
+    }
+    .star.empty {
+      color: #f6ce2b80;
+    }
+    /* Scrollbar none for select */
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 0.7rem center/1em 1em;
+      padding-right: 1.8rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">PortalMagangD3TI</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item me-3">
+            <a href="berandaafterlogin.html" class="nav-link active" aria-current="page">Beranda</a>
+          </li>
+          <li class="nav-item me-3">
+            <a href="halamanlowongan.html" class="nav-link">Lowongan</a>
+          </li>
+          <div class="profile" aria-label="Profile information and settings" tabindex="0">
+            <div class="profile-text">
+            Kim Mingyu
+            <small>active</small>
+          <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Profil</a></li>
+            <li><a class="dropdown-item" href="#">Pengaturan</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger" href="webamagangaduh.html">Logout</a></li>
+          </ul></div>
+        </li>
+        <li class="nav-item me-3">
+            <div class="profile-img"><img src="mingyu2.jpg"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!--Main Content-->
+  <main>
+    <h1>Ulasan</h1>
+
+    <section class="input-comment-section" aria-label="Tambah komentar dan rating">
+      <img src="mingyu2.jpg" />
+      <input type="text" placeholder="Add comment" aria-label="Add comment" />
+      <button aria-label="Send comment" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#555" viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+      </button>
+      <div class="stars-input" aria-label="Star rating">
+  <svg class="star empty" data-index="1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21 16.54 13.97 
+  22 9.24l-7.19-.61L12 2l-2.81 6.63L2 
+  9.24l5.46 4.73L5.82 21z"/></svg>
+  <svg class="star empty" data-index="2" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21 16.54 
+  13.97 22 9.24l-7.19-.61L12 2l-2.81 
+  6.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <svg class="star empty" data-index="3" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21 
+  16.54 13.97 22 9.24l-7.19-.61L12 
+  2l-2.81 6.63L2 9.24l5.46 4.73L5.82 
+  21z"/></svg>
+  <svg class="star empty" data-index="4" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21 
+  16.54 13.97 22 9.24l-7.19-.61L12 
+  2l-2.81 6.63L2 9.24l5.46 4.73L5.82 
+  21z"/></svg>
+  <svg class="star empty" data-index="5" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21 
+  16.54 13.97 22 9.24l-7.19-.61L12 
+  2l-2.81 6.63L2 9.24l5.46 4.73L5.82 
+  21z"/></svg>
+</div>
+    </section>
+
+    <hr class="separator" />
+
+    <div class="sort-section">
+      Sort: 
+      <select aria-label="Sort reviews" name="sortSelect">
+        <option value="popular" selected>Popular</option>
+        <option value="newest">Newest</option>
+        <option value="oldest">Oldest</option>
+      </select>
+    </div>
+
+    <section class="reviews-grid" aria-label="Reviews list" aria-live="polite" aria-relevant="additions">
+      <article class="review-card" tabindex="0">
+        <div class="review-header">
+          <img src="profile.jpg" />
+          Patrick
+        </div>
+        <div class="review-stars" aria-label="4 star rating">
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#f6ce2b" stroke-width="2" d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star empty" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#f6ce2b" stroke-width="2" d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <p class="review-content">
+          I just tried this recipe and it was amazing! The instructions were clear and easy to follow, and the end result was delicious. I will definitely be making this again. Thanks for sharing!
+        </p>
+        <span class="review-time" aria-label="Posted 5 minutes ago">5 min ago</span>
+      </article>
+
+      <article class="review-card" tabindex="0">
+        <div class="review-header">
+          <img src="profile.jpg" />
+          Bellatrix
+        </div>
+        <div class="review-stars" aria-label="5 star rating">
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <p class="review-content">
+          I just tried this recipe and it was amazing! The instructions were clear and easy to follow, and the end result was delicious. I will definitely be making this again. Thanks for sharing!
+        </p>
+        <span class="review-time" aria-label="Posted 5 minutes ago">5 min ago</span>
+      </article>
+
+      <article class="review-card" tabindex="0">
+        <div class="review-header">
+          <img src="profile.jpg" />
+          Johny
+        </div>
+        <div class="review-stars" aria-label="4 star rating">
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#f6ce2b" stroke-width="2" d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star empty" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#f6ce2b" stroke-width="2" d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <p class="review-content">
+          I just tried this recipe and it was amazing! The instructions were clear and easy to follow, and the end result was delicious. I will definitely be making this again. Thanks for sharing!
+        </p>
+        <span class="review-time" aria-label="Posted 5 minutes ago">5 min ago</span>
+      </article>
+
+      <article class="review-card" tabindex="0">
+        <div class="review-header">
+          <img src="profile.jpg" />
+          Kyle
+        </div>
+        <div class="review-stars" aria-label="4 star rating">
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#f6ce2b" stroke-width="2" d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg class="star empty" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#f6ce2b" stroke-width="2" d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <p class="review-content">
+          I just tried this recipe and it was amazing! The instructions were clear and easy to follow, and the end result was delicious. I will definitely be making this again. Thanks for sharing!
+        </p>
+        <span class="review-time" aria-label="Posted 5 minutes ago">5 min ago</span>
+      </article>
+    </section>
+
+    <button class="load-more-btn" type="button" aria-label="Load more reviews">Load More</button>
+  </main>
+
+   <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row text-light mb-4">
+        <div class="col-md-4 mb-3">
+          <h5 class="fw-bold">PortalMagangD3TI</h5>
+          <p>Platform magang inovatif untuk mahasiswa Teknik Informatika D3.</p>
+          <div class="d-flex gap-2">
+            <a href="#" aria-label="Facebook" title="Facebook" class="text-light fs-5"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/facebook-circled--v1.png" alt="facebook-circled--v1"/></a>
+            <a href="#" aria-label="Twitter" title="Twitter" class="text-light fs-5"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/twitter.png" alt="twitter"/></a>
+            <a href="#" aria-label="Instagram" title="Instagram" class="text-light fs-5"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/instagram-new--v1.png" alt="instagram-new--v1"/></a>
+          </div>
+        </div>
+        <div class="col-md-2 mb-3">
+          <h6>Page</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-3">
+          <h6>Page</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-3">
+          <h6>Page</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center small">
+        © 2024 PortalMagangD3TI — All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+  // Setup element ID
+  document.querySelector("input[placeholder='Add comment']").id = "commentInput";
+  document.querySelector("button[aria-label='Send comment']").id = "submitBtn";
+  document.querySelector(".stars-input").id = "starInput";
+  document.querySelector(".reviews-grid").id = "reviewList";
+
+  let currentRating = 0;
+  const stars = document.querySelectorAll("#starInput .star");
+
+  // Buat bintang bisa diklik
+  stars.forEach((star, index) => {
+    star.addEventListener("click", () => {
+      currentRating = index + 1;
+      updateStars();
+    });
+  });
+
+  function updateStars() {
+    stars.forEach((star, index) => {
+      if (index < currentRating) {
+        star.classList.remove("empty");
+      } else {
+        star.classList.add("empty");
+      }
+    });
+  }
+
+  // Submit komentar dan rating
+  document.getElementById("submitBtn").addEventListener("click", () => {
+    const comment = document.getElementById("commentInput").value.trim();
+    if (comment === "" || currentRating === 0) return;
+
+    const card = document.createElement("article");
+    card.classList.add("review-card");
+
+    let starsMarkup = "";
+    for (let i = 1; i <= 5; i++) {
+      starsMarkup += `<svg class="star ${i > currentRating ? 'empty' : ''}" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21z"/>
+      </svg>`;
+    }
+
+    card.innerHTML = `
+      <div class="review-header">
+        <img src="https://via.placeholder.com/36" alt="Guest profile" />
+        Guest User
+      </div>
+      <div class="review-stars" aria-label="${currentRating} star rating">
+        ${starsMarkup}
+      </div>
+      <p class="review-content">${comment}</p>
+      <span class="review-time">Baru saja</span>
+    `;
+
+    document.getElementById("reviewList").prepend(card);
+    document.getElementById("commentInput").value = "";
+    currentRating = 0;
+    updateStars();
+  });
+</script>
+</body>
+</html>
+

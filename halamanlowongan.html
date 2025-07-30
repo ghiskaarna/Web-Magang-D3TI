@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PortalMagangD3TI - Cari Lowongan</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body { background-color: #ffffff; font-family: 'Segoe UI', sans-serif; }
+    .navbar-custom { background-color: #3c0a59; }
+    .navbar-custom .nav-link, .navbar-custom .navbar-brand { color: #f4d35e; }
+    .navbar-custom .nav-link:hover { color: #fff; }
+    .card-title { font-weight: bold; }
+    footer { background-color: #3c0a59; color: #f4d35e; padding: 20px 0; }
+    .profile-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: white;
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    body {
+      background-color: white;
+      color: #212529;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .navbar-custom {
+      background-color: #3c0a59;
+    }
+    .navbar-custom .navbar-brand,
+    .navbar-custom .nav-link,
+    .navbar-custom .btn{
+      color: #f4d35e;
+    }
+    .navbar-custom .nav-item .btn-outline-light{
+      color: black;
+    }
+    .navbar-custom .nav-item .nav-link{
+      color: #f4d35e;
+    }
+    .navbar-custom .nav-link:hover {
+      color: #ffeb9c;
+    }
+    .navbar-custom .nav-item .profile-img{
+        position: relative;
+    }
+    .navbar-custom .profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .navbar-custom .profile-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #e6b800;
+  }
+  .navbar-custom .profile img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid #ffd600;
+    object-fit: cover;
+    margin-left: 10px;
+  }
+  .navbar-custom .profile-text small {
+    background-color: #ffd600;
+    color: #35074f;
+    border-radius: 50px;
+    padding: 0 0.35rem;
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+  }
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      color: #fccd2f;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover,
+    a:focus {
+      color: #e6b800;
+      outline: none;
+    }
+    .btn-primary {
+      background-color: black;
+      border-color: black;
+    }
+    .btn-primary:hover {
+      background-color: #3c0a59;
+      border-color: #3c0a59;
+    }
+    .feature-btn {
+      background-color: black;
+      color: #fff;
+      border: none;
+      font-weight: 500;
+    }
+    .feature-btn:hover {
+      background-color: #3c0a59;
+      color: #fff;
+    }
+    .header-title {
+      color: #222;
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
+    }
+    .header-subtitle {
+      color: #444;
+      font-weight: 400;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      max-width: 700px;
+    }
+    .form-control-sm {
+      background-color: #eee;
+      border: 1px solid #ddd;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .section-title {
+      font-weight: 600;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #222;
+    }
+    .card-job {
+      border: 1px dotted #bababa;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      margin-bottom: 1rem;
+      transition: box-shadow 0.3s ease;
+    }
+    .card-job:hover {
+      box-shadow: 0 3px 15px rgb(132 0 177 / 0.3);
+    }
+    .card-job img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+      border-bottom: 1px dotted #bababa;
+    }
+    .card-job-body {
+      padding: 0.5rem 1rem 0.7rem 1rem;
+    }
+    .job-company {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #411352;
+      margin-bottom: 0.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .job-desc {
+      font-size: 0.85rem;
+      color: #555;
+      margin: 0;
+    }
+    footer {
+      background-color: #411352;
+      color: #f4df54;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+    footer .footer-title {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+    footer a {
+      color: #f4df54;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .footer-links > div {
+      margin-bottom: 10px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 3rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    /* Responsive adjustments */
+    @media (min-width: 576px) {
+      .search-inputs .col-sm-3 {
+        max-width: 170px;
+      }
+    }
+    @media (max-width: 576px) {
+      .search-inputs .col-6 {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">PortalMagangD3TI</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item me-3">
+            <a href="berandaafterlogin.html" class="nav-link active" aria-current="page">Beranda</a>
+          </li>
+          <li class="nav-item me-3">
+            <a href="halamanlowongan.html" class="nav-link">Lowongan</a>
+          </li>
+          <div class="profile" aria-label="Profile information and settings" tabindex="0">
+            <div class="profile-text">
+            Kim Mingyu
+            <small>active</small>
+          <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Profil</a></li>
+            <li><a class="dropdown-item" href="#">Pengaturan</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger" href="webamagangaduh.html">Logout</a></li>
+          </ul></div>
+        </li>
+        <li class="nav-item me-3">
+            <div class="profile-img"><img src="mingyu2.jpg"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <main class="container py-4" style="max-width:900px;">
+    <!-- Header text -->
+    <h1 class="header-title">MAGANG D3TI - Portal Magang</h1>
+    <p class="header-subtitle">
+      Selamat datang di PortalMagangD3TI, platform magang inovatif yang dirancang khusus untuk mahasiswa D3 Teknik Informatika! Temukan berbagai lowongan magang terkini dari perusahaan teknologi ternama, ajukan lamaran hanya dengan sekali klik, dan kelola jurnal magangmu secara digital.
+    </p>
+
+    <!-- Search Filters -->
+    <form class="mb-4" aria-label="Form pencarian lowongan magang">
+      <div class="row g-2 search-inputs">
+        <div class="col-6 col-sm-3">
+          <input type="text" class="form-control form-control-sm" placeholder="Posisi" aria-label="Posisi pekerjaan" />
+        </div>
+        <div class="col-6 col-sm-3">
+          <input type="text" class="form-control form-control-sm" placeholder="Perusahaan" aria-label="Perusahaan" />
+        </div>
+        <div class="col-6 col-sm-3">
+          <input type="text" class="form-control form-control-sm" placeholder="Lokasi" aria-label="Lokasi kerja" />
+        </div>
+        <div class="col-6 col-sm-3">
+          <input type="text" class="form-control form-control-sm" placeholder="Jurusan" aria-label="Jurusan terkait" />
+        </div>
+      </div>
+    </form>
+
+    <!-- Recommendations section title -->
+    <h2 class="section-title">Rekomendasi</h2>
+
+    <!-- Recommendations grid -->
+    <div class="row gx-3 gy-4">
+      <!-- Card 1 -->
+      <a href="halamanpendaftaran.html" class="col-12 col-md-6">
+        <article class="card-job" tabindex="0" aria-label="Lowongan magang PT. PERTAMINA">
+          <img src="https://placehold.co/600x240?text=Delicious+bread+and+fruit+breakfast+on+blue+linen+cloth+with+honey+and+white+background" 
+               alt="Delicious breakfast spread of fresh bread, melon slices, grapes, a glass of honey and fruits on a blue linen cloth with white background" 
+               onerror="this.style.display='none'" />
+          <div class="card-job-body">
+            <h3 class="job-company">PT. PERTAMINA</h3>
+            <p class="job-desc">Body text for whatever you’d like to add more to the subheading.</p>
+          </div>
+        </article>
+      </a>
+
+      <!-- Card 2 -->
+      <a href="halamanpendaftaran.html" class="col-12 col-md-6">
+        <article class="card-job" tabindex="0" aria-label="Lowongan magang PT. FREEPORT">
+          <img src="https://placehold.co/600x240?text=Cozy+bread+and+grapes+breakfast+with+white+fabric+in+natural+light" 
+               alt="Cozy breakfast setting with croissants, grapes on white fabric bathed in natural soft light" 
+               onerror="this.style.display='none'" />
+          <div class="card-job-body">
+            <h3 class="job-company">PT. FREEPORT</h3>
+            <p class="job-desc">Body text for whatever you’d like to expand on the main point.</p>
+          </div>
+        </article>
+      </a>
+
+      <!-- Card 3 -->
+      <a href="halamanpendaftaran.html" class="col-12 col-md-6">
+        <article class="card-job" tabindex="0" aria-label="Lowongan magang PT. PERTAMINA">
+          <img src="https://placehold.co/600x240?text=Delicious+bread+and+fruit+breakfast+on+blue+linen+cloth+with+honey+and+white+background" 
+               alt="Delicious breakfast spread of fresh bread, melon slices, grapes, a glass of honey and fruits on a blue linen cloth with white background" 
+               onerror="this.style.display='none'" />
+          <div class="card-job-body">
+            <h3 class="job-company">PT. PERTAMINA</h3>
+            <p class="job-desc">Body text for whatever you’d like to add more to the subheading.</p>
+          </div>
+        </article>
+      </a>
+
+      <!-- Card 4 -->
+      <a href="halamanpendaftaran.html" class="col-12 col-md-6">
+        <article class="card-job" tabindex="0" aria-label="Lowongan magang PT. FREEPORT">
+          <img src="https://placehold.co/600x240?text=Cozy+bread+and+grapes+breakfast+with+white+fabric+in+natural+light" 
+               alt="Cozy breakfast setting with croissants, grapes on white fabric bathed in natural soft light" 
+               onerror="this.style.display='none'" />
+          <div class="card-job-body">
+            <h3 class="job-company">PT. FREEPORT</h3>
+            <p class="job-desc">Body text for whatever you’d like to expand on the main point.</p>
+          </div>
+        </article>
+      </a>
+
+      <!-- Card 5 -->
+      <a href="halamanpendaftaran.html" class="col-12 col-md-6">
+        <article class="card-job" tabindex="0" aria-label="Lowongan magang PT. PERTAMINA">
+          <img src="https://placehold.co/600x240?text=Delicious+bread+and+fruit+breakfast+on+blue+linen+cloth+with+honey+and+white+background" 
+               alt="Delicious breakfast spread of fresh bread, melon slices, grapes, a glass of honey and fruits on a blue linen cloth with white background" 
+               onerror="this.style.display='none'" />
+          <div class="card-job-body">
+            <h3 class="job-company">PT. PERTAMINA</h3>
+            <p class="job-desc">Body text for whatever you’d like to add more to the subheading.</p>
+          </div>
+        </article>
+      </a>
+
+      <!-- Card 6 -->
+      <a href="halamanpendaftaran.html" class="col-12 col-md-6">
+        <article class="card-job" tabindex="0" aria-label="Lowongan magang PT. FREEPORT">
+          <img src="https://placehold.co/600x240?text=Cozy+bread+and+grapes+breakfast+with+white+fabric+in+natural+light" 
+               alt="Cozy breakfast setting with croissants, grapes on white fabric bathed in natural soft light" 
+               onerror="this.style.display='none'" />
+          <div class="card-job-body">
+            <h3 class="job-company">PT. FREEPORT</h3>
+            <p class="job-desc">Body text for whatever you’d like to expand on the main point.</p>
+          </div>
+        </article>
+      </a>
+    </div>
+  </main>
+
+   <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row text-light mb-4">
+        <div class="col-md-4 mb-3">
+          <h5 class="fw-bold">PortalMagangD3TI</h5>
+          <p>Platform magang inovatif untuk mahasiswa Teknik Informatika D3.</p>
+          <div class="d-flex gap-2">
+            <a href="#" aria-label="Facebook" title="Facebook" class="text-light fs-5"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/facebook-circled--v1.png" alt="facebook-circled--v1"/></a>
+            <a href="#" aria-label="Twitter" title="Twitter" class="text-light fs-5"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/twitter.png" alt="twitter"/></a>
+            <a href="#" aria-label="Instagram" title="Instagram" class="text-light fs-5"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/instagram-new--v1.png" alt="instagram-new--v1"/></a>
+          </div>
+        </div>
+        <div class="col-md-2 mb-3">
+          <h6>Page</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-3">
+          <h6>Page</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-3">
+          <h6>Page</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Page</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center small">
+        © 2024 PortalMagangD3TI — All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
